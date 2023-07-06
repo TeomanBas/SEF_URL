@@ -26,6 +26,7 @@ class database{
                 $menu[$counter]['url']=$row['sef_url'];
                 $counter++;
             }
+            $menu = json_encode($menu);
         }else{
             return "hata";
         }
