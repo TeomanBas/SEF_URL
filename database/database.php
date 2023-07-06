@@ -1,8 +1,6 @@
 <?php
 class database{
-    
     private $Host,$Port,$User,$Pass,$Db,$connection;
-
     function __construct(){
         require_once('config/config.php');
         $this->Host=HOST;
