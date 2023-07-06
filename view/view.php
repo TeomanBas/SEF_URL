@@ -4,7 +4,6 @@ class view{
     function __construct(){
         require_once("database/database.php");
         $this->db= new Database();
-        $as=$this->db;
     }
     function menuview(){
         $menu=$this->db;
@@ -17,6 +16,14 @@ class view{
         $menunav="<nav>".$menuli."</nav>";
         print($menunav);
     }
+    function icerikview($get_url){
+        $icerik=$this->db;
+        $icerikjson=json_decode($icerik->page($get_url));
+        $icerik="";
+        $icerik.="<div align='center'><h1>".$icerikjson[0]->baslik."</h1></div><br><hr>";
+        $icerik.="<div>".$icerikjson[0]->icerik."</div><br>";
+        return $icerik;
+    }
 
 }
-
+?>
