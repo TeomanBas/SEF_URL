@@ -22,7 +22,7 @@ class view{
         $icerik="";
         $icerik.="<div align='center'><h1>".$icerikjson[0]->baslik."</h1></div><br><hr>";
         $icerik.="<div>".$icerikjson[0]->icerik."</div><br>";
-        return $icerik;
+        print $icerik;
     }
 
 }
