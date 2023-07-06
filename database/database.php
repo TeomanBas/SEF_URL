@@ -55,6 +55,7 @@ class database{
     }
     function __destruct(){
         mysqli_close($this->connection);
+        unset($this->Host,$this->Port,$this->User,$this->Pass,$this->Db,$this->Table,$this->connection,$menu,$page);
     }
 }
 
