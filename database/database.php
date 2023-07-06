@@ -1,6 +1,7 @@
 <?php
 class database{
     private $Host,$Port,$User,$Pass,$Db,$Table,$connection;
+    public $Page_Url_Parameter;
     function __construct(){
         require_once('config/config.php');
         $this->Host=HOST;
@@ -31,6 +32,22 @@ class database{
             return "hata";
         }
         return $menu;
+    }
+    function page($Get_Url_Parameter){
+        $page=[];
+        $this->Page_Url_Parameter=mysqli_real_escape_string($this->connection,$Get_Url_Parameter);
+        $result=mysqli_query($this->connection,"SELECT * FROM sef_url_test WHERE sef_url=('$this->Page_Url_Parameter')");
+        if(mysqli_num_rows($result)!=0){
+            while($row=mysqli_fetch_assoc($result)){
+                $page[0]['baslik']=$row['sayfa_baslik'];
+                $page[0]['icerik']=$row['sayfa_icerik'];
+                $page[0]['url']=$row['sef_url'];
+            }
+            $page=json_encode($page);
+        }else{
+            return "hata";
+        }
+        return $page;
     }
     function test(){
         print("test yazısı");
