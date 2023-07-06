@@ -11,7 +11,7 @@ class view{
         $s=count($menujson);
         $menuli="";
         for($i=0;$i<$s;$i++){
-            $menuli.="<li><a href='sayfa/".$menujson[$i]->url."'>".$menujson[$i]->baslik."</a></li>";
+            $menuli.="<li><a href='/SEF_URL/sayfa/".$menujson[$i]->url."'>".$menujson[$i]->baslik."</a></li>";
         }
         $menunav="<nav>".$menuli."</nav>";
         print($menunav);
